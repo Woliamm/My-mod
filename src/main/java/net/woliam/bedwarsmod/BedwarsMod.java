@@ -28,7 +28,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.woliam.bedwarsmod.block.ModBlocks;
 import net.woliam.bedwarsmod.item.ModItems;
+import net.woliam.bedwarsmod.item.custom.FireballItem;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -68,6 +70,7 @@ public class BedwarsMod
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -106,10 +109,15 @@ public class BedwarsMod
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
-        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-            event.accept(ModItems.FIREBALL);
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS)
+            event.accept(ModBlocks.IRON_GENERATOR);
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS)
+                event.accept(ModBlocks.GOLD_GENERATOR);
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS)
+                event.accept(ModBlocks.DIAMOND_GENERATOR);
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS)
+                event.accept(ModBlocks.EMERALD_GENERATOR);
         }
-    }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent

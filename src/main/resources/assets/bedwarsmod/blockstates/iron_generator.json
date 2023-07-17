@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bedwarsmod:block/iron_generator"
+    }
+  }
+}

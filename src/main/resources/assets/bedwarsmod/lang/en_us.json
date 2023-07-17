@@ -1,3 +1,14 @@
 {
-  "item.bedwarsmod.fireball": "Fireball"
+  "item.bedwarsmod.fireball": "Fireball",
+
+  "item.bedwarsmod.snowball": "Snowball",
+
+  "block.bedwarsmod.iron_generator": "Iron Generator",
+
+  "block.bedwarsmod.gold_generator": "Gold Generator",
+
+  "block.bedwarsmod.diamond_generator": "Diamond Generator",
+
+  "block.bedwarsmod.emerald_generator": "Emerald Generator"
+
 }
