@@ -16,7 +16,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 
 public class SilverballEntity extends ThrowableItemProjectile {
-    public SilverballEntity(EntityType<? extends net.minecraft.world.entity.projectile.Snowball> pEntityType, Level pLevel) {
+    public SilverballEntity(EntityType<? extends net.woliam.bedwarsmod.entity.custom.SilverballEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 

@@ -15,10 +15,11 @@ public class ModEntities {
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, BedwarsMod.MODID);
 
     public static final RegistryObject<EntityType<SilverballEntity>> SILVERBALL =
-            ENTITY_TYPES.register("silverball", () -> EntityType.Builder.of(SilverballEntity::new, MobCategory.MISC)
+            ENTITY_TYPES.register("silverball", () -> EntityType.Builder.<SilverballEntity>of(SilverballEntity::new, MobCategory.MISC)
                     .sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("silverball"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
 }
+//ENTITY_TYPES.register("silverball", () -> EntityType.Builder.of(SilverballEntity::new, MobCategory.MISC)
