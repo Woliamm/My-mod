@@ -18,20 +18,18 @@ public class FireballItem extends Item {
         double d2 = 0;
         double d3 = 0;
         double d4 = 0;
+        pPlayer.getCooldowns().addCooldown(this, 20);
         if (!pLevel.isClientSide) {
             double d1 = 4.0D;
             Vec3 vec3 = pPlayer.getViewVector(1.0F);
             d2 = pPlayer.getX() - (pPlayer.getX() + vec3.x * 4.0D);
-            d3 = pPlayer.getY(0.5D) - (0.5D + pPlayer.getY(0.5D));
+            d3 = pPlayer.getY() - (pPlayer.getY() + vec3.y * 4.0D);
             d4 = pPlayer.getZ() - (pPlayer.getZ() + vec3.z * 4.0D);
-
         }
         Vec3 vec3 = pPlayer.getViewVector(1.0F);
-        LargeFireball largefireball = new LargeFireball(pLevel, pPlayer, d2, d3, d4, 5);
-        largefireball.setPos(pPlayer.getX() + vec3.x * 4.0D, pPlayer.getY(0.5D) + 0.5D, largefireball.getZ() + vec3.z * 4.0D);
+        LargeFireball largefireball = new LargeFireball(pLevel, pPlayer, -d2, -d3, -d4, 3);
+        largefireball.setPos(pPlayer.getX() + vec3.x * 2.0D, pPlayer.getY(0.5D) + 0.5D, largefireball.getZ() + vec3.z * 2.0D);
         pLevel.addFreshEntity(largefireball);
-
-
         return super.use(pLevel, pPlayer, pUsedHand);
 
     }
