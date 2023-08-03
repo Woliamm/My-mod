@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.woliam.bedwarsmod.BedwarsMod;
+import net.woliam.bedwarsmod.item.custom.BridgeEggItem;
 import net.woliam.bedwarsmod.item.custom.FireballItem;
 import net.woliam.bedwarsmod.item.custom.SilverballItem;
 
@@ -18,6 +19,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> SILVERBALL = ITEMS.register("silverball",
             () -> new SilverballItem(new Item.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> BRIDGEEGG = ITEMS.register("bridgeegg",
+            () -> new BridgeEggItem(new Item.Properties().stacksTo(16)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

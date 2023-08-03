@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeDeferredRegistriesSetup;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.woliam.bedwarsmod.BedwarsMod;
+import net.woliam.bedwarsmod.entity.custom.BridgeEggEntity;
 import net.woliam.bedwarsmod.entity.custom.SilverballEntity;
 
 public class ModEntities {
@@ -18,8 +19,12 @@ public class ModEntities {
             ENTITY_TYPES.register("silverball", () -> EntityType.Builder.<SilverballEntity>of(SilverballEntity::new, MobCategory.MISC)
                     .sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("silverball"));
 
+    public static final RegistryObject<EntityType<BridgeEggEntity>> BRIDGEEGG =
+            ENTITY_TYPES.register("bridgeegg", () -> EntityType.Builder.<BridgeEggEntity>of(BridgeEggEntity::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F).clientTrackingRange(4).updateInterval(10).build("bridgeegg"));
+
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
 }
-//ENTITY_TYPES.register("silverball", () -> EntityType.Builder.of(SilverballEntity::new, MobCategory.MISC)
