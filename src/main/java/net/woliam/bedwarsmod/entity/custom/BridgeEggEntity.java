@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.entity.schedule.Schedule;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.block.AirBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 
@@ -30,16 +32,16 @@ public class BridgeEggEntity extends ThrowableItemProjectile {
     public BridgeEggEntity(Level pLevel, double pX, double pY, double pZ) {
         super(EntityType.EGG, pX, pY, pZ, pLevel);
     }
+    int x = 0;
 
     @Override
     public void tick() {
-        if (!level().isClientSide) {
             BlockPos blockpos = this.blockPosition();
         BlockState blockstate = this.level().getBlockState(this.blockPosition());
             if (blockstate.is(Blocks.AIR)) {
+                if (x >= 1000);
                 this.level().setBlock(blockpos, Blocks.DIRT.defaultBlockState(), 0);
-            }
-        }
+            } else x += 1;
         super.tick();
     }
 
@@ -49,7 +51,6 @@ public class BridgeEggEntity extends ThrowableItemProjectile {
     public void handleEntityEvent(byte pId) {
         if (pId == 3) {
             double d0 = 0.08D;
-
             for(int i = 0; i < 8; ++i) {
                 this.level().addParticle(new ItemParticleOption(ParticleTypes.ITEM, this.getItem()), this.getX(), this.getY(), this.getZ(), ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D);
             }

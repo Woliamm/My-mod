@@ -10,6 +10,7 @@ import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import net.woliam.bedwarsmod.entity.custom.BridgeEggEntity;
 
 public class BridgeEggItem extends Item {
@@ -27,6 +28,8 @@ public class BridgeEggItem extends Item {
         if (!pLevel.isClientSide) {
             BridgeEggEntity bridgeegg = new BridgeEggEntity(pLevel, pPlayer);
             bridgeegg.setItem(itemstack);
+            Vec3 vec3 = pPlayer.getViewVector(1.0F);
+            bridgeegg.setPos(pPlayer.getX() + vec3.x * 2.0D, pPlayer.getY(0.5D) + 0.5D, bridgeegg.getZ() + vec3.z * 2.0D);
             bridgeegg.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
             pLevel.addFreshEntity(bridgeegg);
         }
