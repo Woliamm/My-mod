@@ -39,9 +39,8 @@ public class BridgeEggEntity extends ThrowableItemProjectile {
             BlockPos blockpos = this.blockPosition();
         BlockState blockstate = this.level().getBlockState(this.blockPosition());
             if (blockstate.is(Blocks.AIR)) {
-                if (x >= 1000);
-                this.level().setBlock(blockpos, Blocks.DIRT.defaultBlockState(), 0);
-            } else x += 1;
+                this.level().setBlock(blockpos, Blocks.DIRT.defaultBlockState(), 3);
+            }
         super.tick();
     }
 
